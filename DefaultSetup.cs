@@ -6,8 +6,8 @@ namespace NITHtemplate.Setups
 {
     /// <summary>
     /// The DefaultSetup class is responsible for initializing and configuring the necessary modules and connections for the application.
-    /// It manages the creation of various modules such as mapping, rendering, and communication receivers, 
-    /// as well as handling cleanup through the Dispose method.
+    /// It manages the creation of various modules such as mapping, rendering, and communication receivers, as well as handling cleanup through the Dispose method.
+    /// It's advised to use this to instance all the modules contained in the Rack, and manage their connections to let them interact together.
     /// </summary>
     public class DefaultSetup
     {
