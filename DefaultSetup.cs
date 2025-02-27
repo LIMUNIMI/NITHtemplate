@@ -1,4 +1,5 @@
 ﻿using NITHlibrary.Nith.Module;
+using NITHlibrary.Nith.Wrappers.NithWebcamWrapper;
 using NITHlibrary.Tools.Ports;
 using NITHtemplate.Modules;
 
@@ -35,15 +36,15 @@ namespace NITHtemplate.Setups
             Rack.MappingModule = new MappingModule();
             Rack.RenderingModule = new RenderingModule(Window);
             Rack.USBreceiver = new USBreceiver();
-            Rack.UDPreceiver = new UDPreceiver();
+            // Rack.UDPreceiver = new UDPreceiver(); // In this example we're using only a USB receiver
             Rack.NithModule = new NithModule();
 
             // Connect USB port to NithModule. Here's an example.
-            // Rack.USBreceiver.Connect(3); // Connect the receiver to port 3
-            // Rack.USBreceiver.Listeners.Add(Rack.NithModule); // NithModule listens to USB output
+            Rack.USBreceiver.Connect(3); // Connect the receiver to port 3
+            Rack.USBreceiver.Listeners.Add(Rack.NithModule); // NithModule listens to USB output
 
             // Add preprocessors. Here's an example:
-            // Rack.NithModule.Preprocessors.Add(new NithPreprocessor_FaceCam());
+            Rack.NithModule.Preprocessors.Add(new NithPreprocessor_WebcamWrapper());
 
             // Add disposables to list
             Disposables.Add(Rack.RenderingModule);
