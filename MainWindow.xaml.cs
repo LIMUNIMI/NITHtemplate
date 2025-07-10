@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using NITHtemplate.Setups;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,15 @@ namespace NITHtemplate
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly DefaultSetup _defaultSetup;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Launch Setup
+            _defaultSetup = new DefaultSetup(this);
+            _defaultSetup.Setup();
         }
     }
 }
